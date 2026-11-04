@@ -21,6 +21,44 @@
 
 const POSTS = [
   {
+    slug: 'grassland-game',
+    date: '2026-11-04',
+    title: '第二个作品：一个能玩的跑酷小游戏',
+    tags: ['作品', 'canvas'],
+    summary: '没有引擎、没有贴图，角色和草地全是代码画的。现在可以直接玩了。',
+    body: `
+      <p>这是我第二个能跑起来的东西：一个纯网页的跑酷小游戏。不用装任何东西，点开就能玩。</p>
+
+      <p><a class="play" href="games/grassland-run/" target="_blank" rel="noopener">▶ 点这里直接玩</a></p>
+
+      <figure class="media">
+        <a href="games/grassland-run/" target="_blank" rel="noopener">
+          <img src="games/grassland-run/preview.png" alt="游戏画面：粉色团子在草地上奔跑" />
+        </a>
+        <figcaption>空格跳跃，空中再按一次二段跳，↓ 滑铲。按 R 能看见角色的骨架。</figcaption>
+      </figure>
+
+      <p>纸面上它是个"小游戏"，但里面有几件事是我以前完全不会的：</p>
+
+      <ul>
+        <li><strong>固定 1/120 秒的物理步长</strong>——不管电脑快慢，跳跃高度都一样</li>
+        <li><strong>两骨 IK 解算腿的位置</strong>——脚是真的踩在地上，不是摆姿势</li>
+        <li><strong>屏幕震动用 trauma 的平方衰减</strong>——不是每帧随机抖，那样会晕</li>
+        <li><strong>弹簧关节</strong>——落地时身体压扁再弹回，所以跑起来有重量</li>
+      </ul>
+
+      <h2>做的时候踩的坑</h2>
+
+      <p>最蠢的一个：角色跑出屏幕右边。原因是画实体的时候忘了减相机坐标——背景内部已经把世界坐标换成了屏幕坐标，实体却还在用世界坐标。查了很久，最后只是加了一行 <code>translate(-cam.x, 0)</code>。</p>
+
+      <p>第二个：四肢全是 NaN，整个人只剩一个圆球。原因更蠢——玩家对象上少了一个 <code>speed</code> 字段，所有和速度有关的计算都变成了 NaN。</p>
+
+      <blockquote>能定位到「哪一行」之前，都不要猜。</blockquote>
+
+      <p>这两个 bug 都不是"不会写"，而是"不知道自己写的东西在哪里断了"。这也是我现在最想补的能力。</p>
+    `
+  },
+  {
     slug: 'three-tools',
     date: '2026-11-04',
     title: '装了三个软件，才搞清它们各干什么',

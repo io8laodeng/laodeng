@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+<meta name="theme-color" content="#BDE9FF" />
+<title>草地小跑 · Grassland Dash</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="stage" aria-label="游戏画面：白帽团子在草地上奔跑"></canvas>
+
+  <!-- HUD：四角锚定，只由事件驱动更新 -->
+  <div id="hud" aria-hidden="true">
+    <div class="hud-slot top-left">
+      <div class="hearts" id="hearts"></div>
+    </div>
+
+    <div class="hud-slot top-center">
+      <div class="score-pill"><span id="score">0</span><span class="unit">分</span></div>
+      <div class="dist-pill"><span id="dist">0</span> m</div>
+    </div>
+
+    <div class="hud-slot top-right">
+      <div class="best-pill">最佳 <b id="best">0</b></div>
+    </div>
+  </div>
+
+  <!-- 触屏按钮 -->
+  <div id="touch-controls" aria-hidden="true">
+    <button class="touch-btn jump" id="btn-jump" type="button">跳<small>JUMP</small></button>
+    <button class="touch-btn slide" id="btn-slide" type="button">滑<small>SLIDE</small></button>
+  </div>
+
+  <!-- 界面栈 -->
+  <div id="screens">
+    <section class="screen" id="screen-title">
+      <div class="panel">
+        <span class="badge">网页小游戏</span>
+        <h1>草地小跑</h1>
+        <p class="sub">GRASSLAND&nbsp;DASH</p>
+        <p class="desc">粉色团子今天也想出门跑步。跳过石头、滑过飞鸟，顺手捡点星星。</p>
+        <ul class="keys">
+          <li><kbd>空格</kbd><kbd>↑</kbd><kbd>W</kbd><span>跳跃</span></li>
+          <li><kbd>空格</kbd><span>空中再按一次 = 二段跳</span></li>
+          <li><kbd>↓</kbd><kbd>S</kbd><span>滑铲（钻过低空的鸟）</span></li>
+          <li><kbd>P</kbd><kbd>Esc</kbd><span>暂停</span></li>
+        </ul>
+        <button class="btn primary" type="button" data-action="start">开始奔跑</button>
+        <p class="tiny">按 <kbd>R</kbd> 可以看见角色的骨架 —— 手脚都是活的弹簧。</p>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-pause">
+      <div class="panel narrow">
+        <h2>暂停中</h2>
+        <p class="desc">喘口气，草还在长。</p>
+        <div class="toggle-row">
+          <button class="toggle" type="button" data-toggle="sound" aria-pressed="true"><span class="dot"></span>音效</button>
+          <button class="toggle" type="button" data-toggle="shake" aria-pressed="true"><span class="dot"></span>画面震动</button>
+        </div>
+        <button class="btn primary" type="button" data-action="resume">继续</button>
+        <button class="btn ghost" type="button" data-action="restart">重新开始</button>
+        <button class="btn ghost" type="button" data-action="title">回到标题</button>
+      </div>
+    </section>
+
+    <section class="screen" id="screen-over">
+      <div class="panel narrow">
+        <h2>跑累啦</h2>
+        <div class="result">
+          <div class="result-row"><span>本次得分</span><b id="final-score">0</b></div>
+          <div class="result-row"><span>跑出距离</span><b id="final-dist">0 m</b></div>
+          <div class="result-row"><span>捡到星星</span><b id="final-coins">0</b></div>
+          <div class="result-row highlight"><span>历史最佳</span><b id="final-best">0</b></div>
+        </div>
+        <button class="btn primary" type="button" data-action="restart">再来一次</button>
+        <button class="btn ghost" type="button" data-action="title">回到标题</button>
+      </div>
+    </section>
+  </div>
+
+  <noscript><p style="position:fixed;inset:0;display:grid;place-items:center;font:600 18px sans-serif">这个游戏需要启用 JavaScript。</p></noscript>
+
+  <script src="js/util.js"></script>
+  <script src="js/world.js"></script>
+  <script src="js/character.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>
