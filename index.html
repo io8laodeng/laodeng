@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>老登不洗脸 · 学 AI 的日志</title>
+<meta name="description" content="一个 AI 初学者的公开学习日志：每天搞懂了什么、卡在哪里、下次从哪继续。" />
+
+<!-- 社交分享卡片（发到微信/Twitter 时有预览）-->
+<meta property="og:title" content="老登不洗脸 · 学 AI 的日志" />
+<meta property="og:description" content="一个 AI 初学者的公开学习日志。" />
+<meta property="og:type" content="website" />
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+<!-- 键盘用户按 Tab 第一下就能跳过导航 -->
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="site-head">
+  <a class="brand" href="#/">老登不洗脸<span class="cursor" aria-hidden="true">▌</span></a>
+
+  <nav class="nav" aria-label="主导航">
+    <a href="#/">日志</a>
+    <a href="#now">现在</a>
+    <a href="#about">关于</a>
+  </nav>
+
+  <button class="theme" id="theme" type="button" aria-label="切换深浅色" aria-pressed="false">◐</button>
+</header>
+
+<main id="main">
+
+  <!-- ══════════ 列表视图 ══════════ -->
+  <div id="index-view">
+
+    <section class="hero">
+      <h1>我在这里学 AI。</h1>
+      <p class="lede">
+        公开的笔记本。每天写一点：今天搞懂了什么，卡在哪里，下次从哪继续。
+        写不出来，就说明还没真懂。
+      </p>
+      <p class="meta">
+        始于 2026.10 · 共 <b data-count>0</b> 篇 · 最近更新 <time data-updated>—</time>
+      </p>
+    </section>
+
+    <section class="log">
+      <h2 class="label">日志</h2>
+      <!-- 这个容器由 app.js 填充：按年份分组 + 每篇一个条目 -->
+      <div id="entries"></div>
+    </section>
+
+    <section class="now" id="now">
+      <h2 class="label">现在</h2>
+      <ul class="now-list">
+        <li>
+          <span>手写 HTML / CSS / JavaScript，先把地基打牢</span>
+          <span class="now-state">进行中</span>
+        </li>
+        <li>
+          <span>读懂一个神经网络到底在算什么</span>
+          <span class="now-state">刚开始</span>
+        </li>
+        <li>
+          <span>每天写一篇日志，写清楚而不是写得长</span>
+          <span class="now-state">第 3 天</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="about" id="about">
+      <h2 class="label">关于</h2>
+      <p>
+        我在学 AI，从最基础的地方开始：先能做出东西，再谈原理。
+        这个网页是我的公开笔记，也是我的第一个作品——它本身就是在写代码中学出来的。
+      </p>
+      <p>
+        如果你也想学，或者发现我哪里写错了，欢迎来信：
+        <a href="mailto:3432393139@qq.com">3432393139@qq.com</a>
+      </p>
+    </section>
+
+  </div>
+
+  <!-- ══════════ 单篇视图 ══════════ -->
+  <article class="post" id="post-view" hidden></article>
+
+</main>
+
+<footer class="site-foot">
+  <p>© 2026 老登不洗脸</p>
+  <p>用 HTML / CSS / JavaScript 手写，没有框架</p>
+</footer>
+
+<!-- 先加载数据，再加载逻辑：app.js 要用到 POSTS -->
+<script src="posts.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
