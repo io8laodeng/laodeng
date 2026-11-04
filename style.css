@@ -126,10 +126,33 @@ a {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font: 600 15px/1 var(--mono);
   letter-spacing: 0.01em;
   text-decoration: none;
   margin-right: auto;
+}
+
+/* 头像：圆形裁切，细边框，跟着深浅色走 */
+.avatar {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  transition: border-color 0.15s ease;
+}
+
+.brand:hover .avatar {
+  border-color: var(--ink);
+}
+
+.brand-name {
+  display: inline-flex;
+  align-items: center;
 }
 
 .cursor {
@@ -338,15 +361,48 @@ main {
 
 /* ───────────────────────── 关于 ───────────────────────── */
 
+/* ───────────────────────── 关于 ───────────────────────── */
+
+.about-body {
+  display: flex;
+  gap: var(--space-5);
+  align-items: flex-start;
+  margin-top: var(--space-4);
+}
+
+.portrait {
+  flex: none;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+}
+
 .about p {
-  margin: var(--space-4) 0 0;
+  margin: 0 0 var(--space-4);
   max-width: var(--measure);
   font-size: 16px;
   line-height: 1.9;
 }
 
+.about p:last-child {
+  margin-bottom: 0;
+}
+
 .about a {
   text-underline-offset: 4px;
+}
+
+@media (max-width: 560px) {
+  .about-body {
+    gap: var(--space-4);
+  }
+
+  .portrait {
+    width: 64px;
+    height: 64px;
+  }
 }
 
 /* ───────────────────────── 单篇 ───────────────────────── */
